@@ -1,0 +1,508 @@
+/* Pure Bootstrap & Caterix Custom Theme Engine - Zero Tailwind CSS */
+@import "../css/bootstrap.min.css";
+@import "../css/animate.css";
+@import "../css/swiper-bundle.min.css";
+@import "../css/magnific-popup.css";
+@import "../css/mousecursor.css";
+@import "../css/custom.css";
+
+/* Ensure smooth image rendering and responsive media */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Magic Cursor Heading Inversion Bubble Effect */
+.cb-cursor,
+.cb-cursor * {
+  pointer-events: none !important;
+}
+
+.cb-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999 !important;
+  contain: none !important;
+  isolation: auto !important;
+}
+
+.cb-cursor.-opaque,
+.cb-cursor.-exclusion {
+  mix-blend-mode: exclusion !important;
+}
+
+.cb-cursor.-opaque:before,
+.cb-cursor.-exclusion:before {
+  background: #ffffff !important;
+  opacity: 1 !important;
+  transform: scale(1.7) !important;
+  -webkit-transform: scale(1.7) !important;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s ease !important;
+}
+
+.cb-cursor.-opaque.-active:before,
+.cb-cursor.-exclusion.-active:before {
+  transform: scale(1.4) !important;
+  -webkit-transform: scale(1.4) !important;
+}
+
+/* ===================================================
+   Glassmorphic Header & Enhanced Logo Size
+   =================================================== */
+header.main-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+header.main-header .header-sticky {
+  position: relative;
+  top: 0;
+  background: rgba(11, 21, 40, 0.55) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(27, 117, 188, 0.2) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25) !important;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  z-index: 1000;
+}
+
+header.main-header .header-sticky.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(0);
+  background: rgba(11, 21, 40, 0.88) !important;
+  backdrop-filter: blur(24px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+  border-bottom: 1px solid rgba(27, 117, 188, 0.3) !important;
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(27, 117, 188, 0.15) inset !important;
+}
+
+.navbar {
+  padding: 12px 0 !important;
+  align-items: center;
+  width: 100% !important;
+}
+
+.main-header .navbar .container-fluid {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+.navbar-brand {
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.navbar-brand img {
+  height: 64px !important;
+  width: auto !important;
+  max-width: 230px;
+  display: block;
+  transition: transform 0.25s ease, height 0.25s ease;
+}
+
+.navbar-brand:hover img {
+  transform: scale(1.02);
+}
+
+/* Compact Laptops (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .main-header .navbar .container-fluid {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .main-header .navbar-brand {
+    flex-shrink: 0 !important;
+  }
+
+  .main-header .navbar-brand img {
+    height: 54px !important;
+  }
+
+  .main-header .navbar-collapse.main-menu {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .main-header .nav-menu-wrapper ul li a {
+    padding: 8px 10px !important;
+    font-size: 15px !important;
+  }
+
+  .main-header .header-action-wrap {
+    flex-shrink: 0 !important;
+    margin-left: auto !important;
+  }
+}
+
+/* Desktop & Widescreen (1200px+) - Pure 3-Column Layout: Left Logo, Exact Center Menu, Right CTA */
+@media (min-width: 1200px) {
+  .main-header .navbar .container-fluid {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    align-items: center !important;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+
+  .main-header .navbar-brand {
+    grid-column: 1 !important;
+    justify-self: start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .main-header .navbar-collapse.main-menu {
+    grid-column: 2 !important;
+    justify-self: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .main-header .nav-menu-wrapper {
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .main-header .nav-menu-wrapper > ul {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .main-header .header-action-wrap {
+    grid-column: 3 !important;
+    justify-self: end !important;
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .main-header .navbar .container-fluid {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .navbar-brand img {
+    height: 52px !important;
+    max-width: 190px;
+  }
+  .navbar {
+    padding: 12px 0 !important;
+  }
+}
+
+/* ===================================================
+   Navigation Links, Dropdown & States
+   =================================================== */
+.main-menu ul li a {
+  position: relative;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  letter-spacing: -0.01em !important;
+  padding: 10px 14px !important;
+  color: #FFFFFF !important;
+  transition: all 0.25s ease !important;
+}
+
+.main-menu ul li a:hover {
+  color: #FBAF41 !important;
+}
+
+.main-menu ul li.active > a {
+  color: #1B75BC !important;
+}
+
+.main-menu ul li.active > a::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 14px;
+  right: 14px;
+  height: 3px;
+  background: #1B75BC;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(27, 117, 188, 0.5);
+}
+
+/* Sectors We Serve Dropdown Menu (White Box matching client screenshot) */
+.main-menu ul li.submenu ul {
+  background: #ffffff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 14px 40px rgba(11, 21, 40, 0.25) !important;
+  border-top: 3px solid #1B75BC !important;
+  padding: 8px 0 !important;
+  min-width: 210px !important;
+  top: calc(100% + 5px) !important;
+}
+
+.main-menu ul li.submenu ul li {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.main-menu ul li.submenu ul li a {
+  color: #0B1528 !important;
+  font-family: var(--default-font) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  padding: 11px 24px !important;
+  display: block !important;
+  transition: all 0.25s ease !important;
+}
+
+.main-menu ul li.submenu ul li a::after {
+  display: none !important;
+}
+
+.main-menu ul li.submenu ul li a:hover {
+  color: #1B75BC !important;
+  background: #EBF4FC !important;
+  padding-left: 28px !important;
+}
+
+/* ===================================================
+   Brand Color Architecture (Derived from Official Logo)
+   1. Marine Corporate Blue (#1B75BC)
+   2. Sunrise Amber / Gold (#FBAF41 / #F59E0B)
+   3. Eco Quality Green (#2EA44F) - Extra/Alternate Accent
+   4. Midnight Maritime Navy (#0B1528)
+   =================================================== */
+
+/* High-Impact CTA Button (Sunrise Gold from Logo Sun) */
+.header-btn .btn-default,
+.btn-default.btn-highlighted {
+  background: linear-gradient(135deg, #FBAF41 0%, #F59E0B 100%) !important;
+  color: #0B1528 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35) !important;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.header-btn .btn-default:hover,
+.btn-default.btn-highlighted:hover {
+  /* Let the ::after white slide-in show through. Keep text dark so it's readable on the white hover bg */
+  color: #0B1528 !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.header-btn .btn-default::before,
+.btn-default.btn-highlighted::before {
+  background-color: #FFFFFF !important;
+  background-image: url('/images/arrow-primary.svg') !important;
+}
+
+.header-btn .btn-default:hover::before,
+.btn-default.btn-highlighted:hover::before {
+  background-color: #FBAF41 !important;
+  background-image: url('/images/arrow-white.svg') !important;
+}
+
+/* Standard Buttons (ABENOS Brand Blue) */
+.btn-default {
+  background: #1B75BC !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 15px rgba(27, 117, 188, 0.28) !important;
+}
+
+.btn-default:hover {
+  background: #0B1528 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 20px rgba(11, 21, 40, 0.4) !important;
+}
+
+/* Keep hero action buttons in a single row on all screen sizes including mobile */
+.hero-content-body,
+.hero-btns-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .hero-content-body,
+  .hero-btns-row {
+    gap: 8px !important;
+    margin-top: 25px !important;
+  }
+  .hero-content-body .hero-btn,
+  .hero-btns-row .hero-btn {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .hero-content-body .btn-default,
+  .hero-btns-row .btn-default {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    font-size: 13.5px !important;
+    padding: 11px 36px 11px 12px !important;
+    white-space: nowrap !important;
+    letter-spacing: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .hero-content-body .btn-default::before,
+  .hero-btns-row .btn-default::before {
+    width: 26px !important;
+    height: 26px !important;
+    right: 5px !important;
+    background-size: 11px auto !important;
+  }
+}
+
+/* Alternate Extra Accent: Eco Quality Green (From Logo Leaf) */
+.badge-eco-green,
+.badge-certified,
+.badge-aramco {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(46, 164, 79, 0.12) !important;
+  color: #2EA44F !important;
+  border: 1px solid rgba(46, 164, 79, 0.35) !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  border-radius: 20px !important;
+  padding: 4px 14px !important;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.badge-brand-blue {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(27, 117, 188, 0.12) !important;
+  color: #1B75BC !important;
+  border: 1px solid rgba(27, 117, 188, 0.3) !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  border-radius: 20px !important;
+  padding: 4px 14px !important;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Video Play Button Glow (Sunrise Gold) */
+.video-play-button a {
+  background: #F59E0B !important;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.55) !important;
+}
+
+.video-play-button a:hover {
+  background: #1B75BC !important;
+  box-shadow: 0 0 30px rgba(27, 117, 188, 0.7) !important;
+}
+
+/* Client Ratings, Star Badges & Quotes */
+.rating-star,
+.client-rating i,
+.testimonial-item .star-rating,
+.fa-star {
+  color: #FBAF41 !important;
+}
+
+/* Service Item & Why Choose Card Hover */
+.service-item,
+.why-choose-item,
+.about-us-item {
+  border-color: rgba(27, 117, 188, 0.14) !important;
+  transition: all 0.35s ease !important;
+}
+
+.service-item:hover,
+.why-choose-item:hover,
+.about-us-item:hover {
+  border-color: #1B75BC !important;
+  box-shadow: 0 12px 35px rgba(27, 117, 188, 0.12) !important;
+  transform: translateY(-3px);
+}
+
+/* Header Social Media Buttons */
+.header-social-links .social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  color: #ffffff !important;
+  font-size: 15px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  text-decoration: none;
+}
+
+.header-social-links .social-icon-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.header-social-links .social-icon-btn.linkedin {
+  background: #0077B5;
+}
+
+.header-social-links .social-icon-btn.youtube {
+  background: #FF0000;
+}
+
+/* ===================================================
+   Sectors Showcase Pin Section Responsive Controls
+   =================================================== */
+.sectors-showcase-pin-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+  background: #080E1A;
+}
+
+@media (min-width: 992px) {
+  .sectors-showcase-pin-section {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+
+
+
